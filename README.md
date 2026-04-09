@@ -25,7 +25,7 @@ This would make configuration much easier, especially on **Lakka**.
 
 ## 📸 Screenshots
 
-19XX - The War Against Destily
+19XX - the war against destiny
 ![19XX - The War Against Destily](screenshots/19xx-the-war-against-destiny.png)
 
 Fatal Fury F-Contact - Pocket Fighting Series
