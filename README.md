@@ -28,10 +28,10 @@ This would make configuration much easier, especially on **Lakka**.
 19XX - The War Against Destily
 ![19XX - The War Against Destily](screenshots/19xx-the-war-against-destiny.png)
 
-Fatal Fury - F Contact
+Fatal Fury F-Contact - Pocket Fighting Series
 ![Fatal Fury - F Contact](screenshots/fatal-fury-f-contact-pocket-fighting-series-world-enja.png)
 
-Super Street Fighter II Turbo
+Super Street Fighter II: The New Challengers
 ![Super Street Fighter II Turbo](screenshots/super-street-fighter-ii-turbo.png)
 
 ---
