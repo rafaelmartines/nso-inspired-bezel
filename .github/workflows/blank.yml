@@ -32,6 +32,7 @@ jobs:
         run: zip -r nso-inspired-bezel.zip horizontal.cfg horizontal.png portable.cfg portable.png vertical.cfg vertical.png
       
       - name: Create GitHub Release
+        id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
