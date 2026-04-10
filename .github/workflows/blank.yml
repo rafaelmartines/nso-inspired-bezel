@@ -28,3 +28,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Zip Files
         run: zip -r nso-inspired-bezel.zip horizontal.cfg horizontal.png portable.cfg portable.png vertical.cfg vertical.png
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: nso-inspired-bezel.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
