@@ -7,6 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
+    tags:
+      - 'v*'           # run when pushing version tags like v1.0.0
   pull_request:
     branches: [ "main" ]
 
@@ -19,7 +21,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    permissions: write-all
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -28,3 +30,28 @@ jobs:
       # Runs a single command using the runners shell
       - name: Zip Files
         run: zip -r nso-inspired-bezel.zip horizontal.cfg horizontal.png portable.cfg portable.png vertical.cfg vertical.png
+      
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}              # the tag that triggered the workflow
+          release_name: Release ${{ github.ref_name }} # release title
+          body: |
+            🎉 Automatic release created by workflow
+            Includes packaged zip file.
+          draft: false
+          prerelease: false
+          
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./nso-inspired-bezel.zip
+          asset_name: nso-inspired-bezel.zip
+          asset_content_type: application/zip
+
