@@ -36,8 +36,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}              # the tag that triggered the workflow
-          release_name: Release ${{ github.ref }} # release title
+          tag_name: ${{ github.ref_name }}              # the tag that triggered the workflow
+          release_name: Release ${{ github.ref_name }} # release title
           body: |
             🎉 Automatic release created by workflow
             Includes packaged zip file.
