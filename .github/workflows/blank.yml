@@ -29,7 +29,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Zip Files
-        run: zip -r nso-inspired-bezel.zip horizontal.cfg horizontal.png portable.cfg portable.png vertical.cfg vertical.png
+        run: zip -r nso-inspired-bezel.zip build/horizontal.cfg build/horizontal.png build/portable.cfg build/portable.png build/vertical.cfg build/vertical.png
       
       - name: Create GitHub Release
         id: create_release
